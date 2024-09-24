@@ -8,7 +8,7 @@ interface ButtonPropTypes {
   children?: React.ReactNode;
 }
 
-const ButtonDefault = ({
+const ButtonLink = ({
   label,
   link,
   customClasses,
@@ -27,4 +27,4 @@ const ButtonDefault = ({
   );
 };
 
-export default ButtonDefault;
+export default ButtonLink;
