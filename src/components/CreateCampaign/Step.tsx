@@ -5,10 +5,17 @@ interface StepProps {
   step: string;
   index: number;
   currentStep: number;
+  onClick: (index: number) => void;
   complete: boolean;
 }
 
-const Step: React.FC<StepProps> = ({ step, index, currentStep, complete }) => {
+const Step: React.FC<StepProps> = ({
+  step,
+  index,
+  currentStep,
+  onClick,
+  complete,
+}) => {
   const isActive = currentStep === index + 1;
   const isComplete = index + 1 < currentStep || complete;
 
@@ -25,11 +32,14 @@ const Step: React.FC<StepProps> = ({ step, index, currentStep, complete }) => {
   }
 
   return (
-    <div className="w mt-8 flex w-full flex-col items-center">
+    <div
+      className="w mt-8 flex w-full cursor-pointer flex-col items-center"
+      onClick={() => onClick(index + 1)}
+    >
       <div className={stepCircleClasses}>
         {isComplete ? <TiTick size={24} /> : index + 1}
       </div>
-      <h3 className="text-heading-7 mb-1 text-center font-bold text-dark dark:text-white">
+      <h3 className="mb-1 text-center text-heading-7 font-bold text-dark dark:text-white">
         {step}
       </h3>
     </div>

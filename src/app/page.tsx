@@ -13,8 +13,7 @@ export default function Home() {
   return (
     <>
       <DefaultLayout>
-        <Stepper></Stepper>
-        {/* <Overview /> */}
+        <Overview />
       </DefaultLayout>
     </>
   );

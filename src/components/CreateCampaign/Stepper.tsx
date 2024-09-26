@@ -1,18 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Step } from "./Step";
-import MainCard from "../common/Cards/MainCard";
 import Button from "../Buttons/Button";
-
-const bodyPlaceholder = `We'd love to hear from you!\nShare a quick video of your experience with [Product/Service] and get a special discount on your next purchase.\nJust record your video, click the link below,, and enjoy the reward. It's that simple!\n
-[Click here to upload your video] Thank you for being part of the [Brand Name] family!`;
+import CreateTemplate from "./CreateTemplate";
+import LaunchCampaign from "./LaunchCampaign";
+import SuccessfulLaunch from "./SuccessfulLaunch";
+import SelectContacts from "./SelectContacts";
 
 const Stepper: React.FC = () => {
   const steps = ["Create Template", "Select Contacts", "Launch Campaign"];
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [complete, setComplete] = useState<boolean>(false);
+  const stepperRef = useRef<HTMLDivElement>(null);
 
-  const onClick = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    if (stepperRef.current) {
+      stepperRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [currentStep]);
+
+  const onClickNext = () => {
     if (currentStep === steps.length) {
       setComplete(true);
     } else {
@@ -20,54 +32,73 @@ const Stepper: React.FC = () => {
     }
   };
 
-  return (
-    <>
-      <div className="flex justify-between">
-        {steps.map((step, index) => (
-          <Step
-            key={index}
-            step={step}
-            index={index}
-            currentStep={currentStep}
-            complete={complete}
-          />
-        ))}
-      </div>
+  const onClickStep = (index: number) => {
+    setCurrentStep(index);
+  };
 
-      <MainCard title="Create a Template" customClass="mt-4">
-        <div className="flex flex-col gap-6 p-6.5 pt-4">
-          <div>
-            <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-              Subject Line
-            </label>
-            <input
-              type="text"
-              placeholder="Share a quick video and enjoy a discount on us!"
-              className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
-            />
-          </div>
-          <div>
-            <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-              Email Body
-            </label>
-            <textarea
-              rows={6}
-              placeholder={bodyPlaceholder}
-              className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
-            ></textarea>
-          </div>
-        </div>
-      </MainCard>
+  const handleSendNow = () => {
+    console.log("Send Now clicked");
+    onClickNext();
+  };
+
+  const handleSendLater = () => {
+    console.log("Send Later clicked");
+    onClickNext();
+  };
+
+  return (
+    <div className="mx-auto max-w-7xl pt-8" ref={stepperRef}>
       {!complete && (
-        <div className="flex justify-end">
-          <Button
-            label={currentStep === steps.length ? "Finish" : "Next"}
-            onClick={onClick}
-            customClasses="mt-4"
-          ></Button>
-        </div>
+        <>
+          <div className="mb-4 flex justify-between">
+            {steps.map((step, index) => (
+              <Step
+                key={index}
+                step={step}
+                index={index}
+                currentStep={currentStep}
+                onClick={onClickStep}
+                complete={complete}
+              />
+            ))}
+          </div>
+
+          <div className="mt-4">
+            {!complete && currentStep === 1 && <CreateTemplate />}
+            {!complete && currentStep === 2 && <SelectContacts />}
+            {!complete && currentStep === 3 && <LaunchCampaign />}
+          </div>
+
+          <div className="w-full">
+            {currentStep === steps.length ? (
+              <div className="flex justify-between">
+                <Button
+                  label="Send Later"
+                  onClick={handleSendLater}
+                  customClasses="mt-4"
+                  variant="outlined"
+                />
+                <Button
+                  label="Send Now"
+                  onClick={handleSendNow}
+                  customClasses="mt-4"
+                />
+              </div>
+            ) : (
+              <div className="flex justify-end">
+                <Button
+                  label={currentStep === steps.length ? "Finish" : "Next"}
+                  onClick={onClickNext}
+                  customClasses="mt-4"
+                />
+              </div>
+            )}
+          </div>
+        </>
       )}
-    </>
+
+      {complete && <SuccessfulLaunch />}
+    </div>
   );
 };
 

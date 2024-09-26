@@ -1,5 +1,6 @@
 import React from "react";
 import { dataStats } from "@/types/dataStats";
+import Link from "next/link";
 
 const dataStatsList = [
   {
@@ -153,9 +154,12 @@ const DataStatsOne: React.FC<dataStats> = () => {
             </div>
           </div>
         ))}
-        <div className="flex cursor-pointer items-center justify-center rounded-[10px] bg-green-400 p-6 text-center shadow-1 dark:bg-gray-dark">
-          <p className="text-xl font-bold text-white">Create New Campaign</p>
-        </div>
+        <Link
+          className={`flex cursor-pointer items-center justify-center rounded-[10px] bg-green-400 p-6 text-center text-xl font-bold text-white shadow-1 `}
+          href="/create-campaign"
+        >
+          Create New Campaign
+        </Link>
       </div>
     </>
   );
