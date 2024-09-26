@@ -55,24 +55,9 @@ const Header = (props: {
             </span>
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
-
-          <Link className="block flex-shrink-0 lg:hidden" href="/">
-            <Image
-              width={32}
-              height={32}
-              src={"/images/logo/logo-icon.svg"}
-              alt="Logo"
-            />
-          </Link>
         </div>
 
-        <div className="hidden xl:block">
-          <div>
-            <h1 className=" text-heading-5 font-bold text-dark dark:text-white">
-              Dashboard
-            </h1>
-          </div>
-        </div>
+        <div className="hidden xl:block"></div>
 
         <div className="flex items-center justify-normal gap-2 2xsm:gap-4 lg:w-full lg:justify-between xl:w-auto xl:justify-normal">
           <ul className="flex items-center gap-2 2xsm:gap-4">
