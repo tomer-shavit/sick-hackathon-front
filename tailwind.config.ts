@@ -19,6 +19,7 @@ const config: Config = {
       ...defaultTheme.screens,
     },
     extend: {
+      before: ["not-first"],
       colors: {
         current: "currentColor",
         transparent: "transparent",
@@ -107,6 +108,7 @@ const config: Config = {
         "heading-4": ["35px", "45px"],
         "heading-5": ["28px", "40px"],
         "heading-6": ["24px", "30px"],
+        "heading-7": ["18px", "26px"],
         "body-2xlg": ["22px", "28px"],
         "body-sm": ["14px", "22px"],
         "body-xs": ["12px", "20px"],

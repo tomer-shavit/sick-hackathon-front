@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import ButtonDefault from "@/components/Buttons/ButtonDefault";
+import ButtonLink from "@/components/Buttons/ButtonLink";
 
 export const metadata: Metadata = {
   title: "Next.js Buttons Page | NextAdmin - Next.js Dashboard Kit",
@@ -23,25 +23,25 @@ const Buttons = () => {
 
         <div className="p-4 md:p-6 xl:p-9">
           <div className="mb-7.5 flex flex-wrap gap-5 xl:gap-20">
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-primary text-white px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-primary text-white rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-primary text-white rounded-full px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="border border-primary text-primary rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
@@ -49,25 +49,25 @@ const Buttons = () => {
           </div>
 
           <div className="mb-7.5 flex flex-wrap gap-5 xl:gap-20">
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-green text-white px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-green text-white rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-green text-white rounded-full px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="border border-green text-green rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
@@ -75,25 +75,25 @@ const Buttons = () => {
           </div>
 
           <div className="flex flex-wrap gap-5 xl:gap-20">
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-dark text-white px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-dark text-white rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="bg-dark text-white rounded-full px-10 py-3.5 lg:px-8 xl:px-10"
             />
 
-            <ButtonDefault
+            <ButtonLink
               label="Button"
               link="/"
               customClasses="border border-dark text-dark rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
@@ -112,7 +112,7 @@ const Buttons = () => {
 
         <div className="p-4 md:p-6 xl:p-9">
           <div className="mb-7.5 flex flex-wrap gap-5 xl:gap-7.5">
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-primary text-white py-[11px] px-6"
@@ -132,9 +132,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-green text-white py-[11px] px-6"
@@ -154,9 +154,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-dark text-white py-[11px] px-6"
@@ -176,9 +176,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="border border-primary text-primary py-[11px] px-6"
@@ -198,11 +198,11 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
           </div>
 
           <div className="mb-7.5 flex flex-wrap gap-5 xl:gap-7.5">
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-primary rounded-[5px] text-white py-[11px] px-6"
@@ -222,9 +222,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-green rounded-[5px] text-white py-[11px] px-6"
@@ -244,9 +244,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-dark rounded-[5px] text-white py-[11px] px-6"
@@ -266,9 +266,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="border rounded-[5px] border-primary text-primary py-[11px] px-6"
@@ -288,11 +288,11 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
           </div>
 
           <div className="flex flex-wrap gap-5 xl:gap-7.5">
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-primary rounded-full text-white py-[11px] px-6"
@@ -312,9 +312,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-green rounded-full text-white py-[11px] px-6"
@@ -334,9 +334,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="bg-dark rounded-full text-white py-[11px] px-6"
@@ -356,9 +356,9 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
 
-            <ButtonDefault
+            <ButtonLink
               label="Button With Icon"
               link="/"
               customClasses="border rounded-full border-primary text-primary py-[11px] px-6"
@@ -378,7 +378,7 @@ const Buttons = () => {
                   fill=""
                 />
               </svg>
-            </ButtonDefault>
+            </ButtonLink>
           </div>
         </div>
       </div>
