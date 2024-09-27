@@ -14,14 +14,14 @@ const Pop: React.FC<PopProps> = ({
   children,
   delay = 0,
   duration = 0.2,
-  initialScale = 0.8, // Start slightly smaller for a pop effect
+  initialScale = 0.9, // Start slightly smaller for a pop effect
 }) => {
   return (
     <LazyMotion features={domAnimation}>
       <m.div
         initial={{ scale: initialScale }}
         animate={{ scale: 1 }}
-        transition={{ duration, delay, type: "spring", stiffness: 300 }}
+        transition={{ duration, delay, type: "spring", stiffness: 400 }}
       >
         {children}
       </m.div>

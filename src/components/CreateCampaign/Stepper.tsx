@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Step } from "./Step";
 import Button from "../Buttons/Button";
 import CreateTemplate from "./CreateTemplate";
@@ -12,13 +12,10 @@ const Stepper: React.FC = () => {
   const steps = ["Create Template", "Select Contacts", "Launch Campaign"];
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [complete, setComplete] = useState<boolean>(false);
-  const stepperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (stepperRef.current) {
-      stepperRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [currentStep]);
+    document?.getElementById("Header")?.scrollIntoView({ behavior: "smooth" });
+  }, [currentStep, complete]);
 
   const onClickNext = () => {
     if (currentStep === steps.length) {
@@ -43,16 +40,15 @@ const Stepper: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto max-w-7xl" ref={stepperRef}>
+    <div className="mx-auto max-w-7xl">
       {!complete && (
         <>
           <div className="mb-4 flex justify-between">
             {steps.map((step, index) => {
               // Only apply the Pop animation to the current step
               const isCurrentStep = currentStep - 1 === index;
-
               return (
-                <div key={index}>
+                <div key={index} className="mx-auto max-w-6xl">
                   {isCurrentStep ? (
                     <Pop>
                       <Step

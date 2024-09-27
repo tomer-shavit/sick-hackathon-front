@@ -2,7 +2,6 @@ import Overview from "@/components/Dashboard/E-commerce";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import React from "react";
-import Stepper from "@/components/CreateCampaign/Stepper";
 
 export const metadata: Metadata = {
   title: "Mandao | Spread the word",
