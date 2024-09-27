@@ -7,7 +7,7 @@ const TemplateDetails: React.FC = () => {
   const [templateName, setTemplateName] = useLocalStorage("templateName", "");
 
   return (
-    <MainCard title="Name your template">
+    <MainCard title="Name your template" customClass="mt-4">
       <div className="flex flex-col gap-6 p-6.5 pt-4">
         <ValidatedInput
           label="Template Name"
