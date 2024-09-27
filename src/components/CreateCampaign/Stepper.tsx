@@ -14,7 +14,7 @@ const Stepper: React.FC = () => {
   const [complete, setComplete] = useState<boolean>(false);
 
   useEffect(() => {
-    document?.getElementById("Header")?.scrollIntoView({ behavior: "smooth" });
+    document?.getElementById("Header")?.scrollIntoView({ behavior: "smooth" }); // scrolls to header
   }, [currentStep, complete]);
 
   const onClickNext = () => {
