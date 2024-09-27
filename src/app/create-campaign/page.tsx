@@ -1,5 +1,3 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Stepper from "@/components/CreateCampaign/Stepper";
@@ -13,8 +11,6 @@ const CreateCampaign = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto w-full max-w-[1080px]">
-        <Breadcrumb pageName="Create Campaign" />
-
         <Stepper></Stepper>
       </div>
     </DefaultLayout>

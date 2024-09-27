@@ -10,26 +10,34 @@ interface ContactRowProps {
   };
   isSelected: boolean;
   handleCheckboxChange: (contactId: number) => void;
+  selectable: boolean; // Add selectable prop
 }
 
 const ContactRow: React.FC<ContactRowProps> = ({
   contact,
   isSelected,
   handleCheckboxChange,
+  selectable, // Pass selectable prop
 }) => {
   return (
     <div
-      className={`grid grid-cols-[40px_1fr_1.5fr_2fr] items-center ${
-        isSelected ? "bg-purple-100 dark:bg-purple-900" : ""
-      } border-b border-stroke dark:border-dark-3`}
+      className={`grid items-center ${
+        selectable
+          ? "grid-cols-[40px_1fr_1.5fr_2fr]"
+          : "grid-cols-[1fr_1.5fr_2fr]"
+      } ${isSelected ? "bg-purple-100 dark:bg-purple-900" : ""} border-b border-stroke dark:border-dark-3`}
     >
-      <div className="flex items-center justify-center p-4">
-        <input
-          type="checkbox"
-          checked={isSelected}
-          onChange={() => handleCheckboxChange(contact.contact_id)}
-        />
-      </div>
+      {/* Conditionally render checkbox based on `selectable` prop */}
+      {selectable && (
+        <div className="flex items-center justify-center p-4">
+          <input
+            type="checkbox"
+            checked={isSelected}
+            onChange={() => handleCheckboxChange(contact.contact_id)}
+          />
+        </div>
+      )}
+
       <div className="flex items-center gap-1.5 px-2 py-4">
         <div className="flex-shrink-0">
           <Image
@@ -42,9 +50,11 @@ const ContactRow: React.FC<ContactRowProps> = ({
         </div>
         <p className="font-medium text-dark dark:text-white">{contact.name}</p>
       </div>
+
       <div className="px-2 py-4">
         <p className="text-dark dark:text-white">{contact.email}</p>
       </div>
+
       <div className="px-2 py-4">
         <p className="text-dark dark:text-white">{contact.description}</p>
       </div>

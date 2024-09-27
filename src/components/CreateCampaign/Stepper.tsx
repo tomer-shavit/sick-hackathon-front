@@ -6,6 +6,7 @@ import CreateTemplate from "./CreateTemplate";
 import LaunchCampaign from "./LaunchCampaign";
 import SuccessfulLaunch from "./SuccessfulLaunch";
 import SelectContacts from "./SelectContacts";
+import Pop from "../Animations/Pop";
 
 const Stepper: React.FC = () => {
   const steps = ["Create Template", "Select Contacts", "Launch Campaign"];
@@ -14,11 +15,6 @@ const Stepper: React.FC = () => {
   const stepperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
     if (stepperRef.current) {
       stepperRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -47,20 +43,38 @@ const Stepper: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto max-w-7xl pt-8" ref={stepperRef}>
+    <div className="mx-auto max-w-7xl" ref={stepperRef}>
       {!complete && (
         <>
           <div className="mb-4 flex justify-between">
-            {steps.map((step, index) => (
-              <Step
-                key={index}
-                step={step}
-                index={index}
-                currentStep={currentStep}
-                onClick={onClickStep}
-                complete={complete}
-              />
-            ))}
+            {steps.map((step, index) => {
+              // Only apply the Pop animation to the current step
+              const isCurrentStep = currentStep - 1 === index;
+
+              return (
+                <div key={index}>
+                  {isCurrentStep ? (
+                    <Pop>
+                      <Step
+                        step={step}
+                        index={index}
+                        currentStep={currentStep}
+                        onClick={onClickStep}
+                        complete={complete}
+                      />
+                    </Pop>
+                  ) : (
+                    <Step
+                      step={step}
+                      index={index}
+                      currentStep={currentStep}
+                      onClick={onClickStep}
+                      complete={complete}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-4">
