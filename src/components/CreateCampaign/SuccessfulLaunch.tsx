@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import ButtonLink from "../Buttons/ButtonLink"; // Adjust the path as needed
 import useWindowSize from "@/hooks/useWindowSize";
+import UpFade from "../Animations/UpFade";
 
 const SuccessfulLaunch: React.FC = () => {
   const { width, height } = useWindowSize(); // Using custom hook for window size
@@ -18,27 +19,31 @@ const SuccessfulLaunch: React.FC = () => {
 
   return (
     <div className="flex h-screen flex-col items-center justify-start pt-10 text-center">
-      {/* Confetti Effect */}
       {showConfetti && (
         <Confetti width={width} height={height} gravity={0.02} wind={0} />
       )}
 
-      {/* Celebration Message */}
       <div className="mb-6 mt-18">
-        <h1 className="mb-4 text-4xl font-bold text-dark dark:text-white">
-          🎉 Congratulations! 🎉
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Your campaign has been successfully launched! 🚀
-        </p>
+        <UpFade>
+          <h1 className="mb-4 text-4xl font-bold text-dark dark:text-white">
+            🎉 Congratulations! 🎉
+          </h1>
+        </UpFade>
+
+        <UpFade delay={0.05}>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            Your campaign has been successfully launched! 🚀
+          </p>
+        </UpFade>
       </div>
 
-      {/* Button to go to Campaigns page */}
-      <ButtonLink
-        label="Go to Campaigns"
-        link="/campaigns" // Adjust the link as needed
-        customClasses="bg-primary text-white py-3 px-6 rounded-md"
-      />
+      <UpFade delay={0.1}>
+        <ButtonLink
+          label="Go to Campaigns"
+          link="/campaigns" // Adjust the link as needed
+          customClasses="bg-primary text-white py-3 px-6 rounded-md"
+        />
+      </UpFade>
     </div>
   );
 };
