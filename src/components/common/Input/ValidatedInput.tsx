@@ -6,7 +6,7 @@ interface ValidatedInputProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
-  inputClassName?: string; // Additional class names for customization
+  inputClassName?: string;
   defaultValue?: string;
 }
 
@@ -16,18 +16,17 @@ const ValidatedInput: React.FC<ValidatedInputProps> = ({
   value = "",
   onChange,
   defaultValue,
-  errorMessage = "Supported characters: letters, numbers, spaces, emojis, and basic punctuation [-,.,!,?,@]",
+  errorMessage = "Supported characters: letters, numbers, spaces, emojis, and basic punctuation [-,.,!,?,%,~,:]",
   inputClassName = "",
 }) => {
   const [inputValue, setInputValue] = useState<string>(value);
   const [isValid, setIsValid] = useState<boolean>(true);
 
-  const validationPattern = /^[a-zA-Z0-9\s\-\.\,\']*$/;
+  const validationPattern = /^[a-zA-Z0-9\s\-\.\,\!\?\%\~\:']*$/;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
 
-    // Check if the input matches the allowed pattern
     const isValidInput = validationPattern.test(newValue);
 
     setIsValid(isValidInput);
@@ -40,7 +39,7 @@ const ValidatedInput: React.FC<ValidatedInputProps> = ({
 
   return (
     <div>
-      <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+      <label className="text-md mb-3 block font-medium text-dark dark:text-white">
         {label}
       </label>
       <input

@@ -1,9 +1,9 @@
 import useLocalStorage from "@/hooks/useLocalStorage";
 import contacts from "@/constants/contacts";
-import ContactsPreview from "./ContactsPreview";
-import EmailPreview from "./EmailPreview";
+import CampaignReview from "./CampaignReview";
 import CampaignDetails from "./CampaignDetails";
 import UpFade from "../Animations/UpFade";
+import AlertInfo from "../Alerts/AlertSuccess";
 
 const LaunchCampaign: React.FC = () => {
   const [selectedContactIds] = useLocalStorage<number[]>(
@@ -18,15 +18,17 @@ const LaunchCampaign: React.FC = () => {
   return (
     <>
       <UpFade>
+        <AlertInfo
+          title="What is a Campagin?"
+          body="It is a combination of an Email, Contacts, and a Coupon code."
+        ></AlertInfo>
+      </UpFade>
+      <UpFade>
         <CampaignDetails />
       </UpFade>
 
       <UpFade delay={0.05}>
-        <ContactsPreview selectedContacts={selectedContacts} />
-      </UpFade>
-
-      <UpFade delay={0.1}>
-        <EmailPreview />
+        <CampaignReview selectedContacts={selectedContacts} />
       </UpFade>
     </>
   );

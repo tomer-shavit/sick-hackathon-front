@@ -28,13 +28,12 @@ const ContactsTable: React.FC<ContactsTableProps> = ({
 
   const toggleSelectAll = () => {
     if (selectedContacts.length === contacts.length) {
-      setSelectedContacts([]); // Deselect all
+      setSelectedContacts([]);
     } else {
-      setSelectedContacts(contacts.map((contact) => contact.contact_id)); // Select all
+      setSelectedContacts(contacts.map((contact) => contact.contact_id));
     }
   };
 
-  // Clear selectedContacts when selectable is false
   useEffect(() => {
     if (!selectable) {
       setSelectedContacts([]);
@@ -44,6 +43,20 @@ const ContactsTable: React.FC<ContactsTableProps> = ({
   return (
     <div className="hide-scrollbar overflow-auto rounded-[10px] bg-white px-7.5 pb-4 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card">
       <div className="min-w-[900px]">
+        {selectable && (
+          <div className="mb-4 flex items-center justify-start md:justify-between">
+            <h3 className="text-lg font-semibold">Contacts</h3>
+            <button
+              onClick={toggleSelectAll}
+              className="ml-6 rounded bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 md:ml-0"
+            >
+              {selectedContacts.length === contacts.length
+                ? "Deselect All"
+                : "Select All"}
+            </button>
+          </div>
+        )}
+
         <div
           className={`grid ${selectable ? "grid-cols-[40px_1fr_1.5fr_2fr]" : "grid-cols-[1fr_1.5fr_2fr]"}`}
         >

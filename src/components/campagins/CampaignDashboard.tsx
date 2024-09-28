@@ -1,12 +1,12 @@
 import React from "react";
 import MainCard from "../common/Cards/MainCard";
-import CampaignManagementCard from "./CampaignManagementCard";
 import UpFade from "../Animations/UpFade";
+import CampaignManagementCard from "./CampaignManagementCard";
 
 const CampaignDashboard: React.FC = () => {
   return (
-    <MainCard title="Campaigns" customClass="bg-gray-50">
-      <div className="p-4">
+    <MainCard title="Campaigns" innerCustomClass="bg-gray-1 dark:bg-gray-dark">
+      <div className="p-4 ">
         <UpFade>
           <CampaignManagementCard
             title="Before & After Campaign"

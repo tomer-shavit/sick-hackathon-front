@@ -5,7 +5,7 @@ import ContactsTable from "../Tables/ContactsTable";
 const SelectContacts: React.FC = () => {
   return (
     <UpFade>
-      <MainCard title="Select Contacts For The Campagin" customClass="mt-4">
+      <MainCard title="Choose Contacts to Email" customClass="mt-4">
         <ContactsTable selectable></ContactsTable>
       </MainCard>
     </UpFade>

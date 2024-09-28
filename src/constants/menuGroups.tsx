@@ -4,6 +4,8 @@ import { FaWpforms } from "react-icons/fa";
 import { RiMegaphoneLine } from "react-icons/ri";
 import { CiViewTable } from "react-icons/ci";
 import { RxGear } from "react-icons/rx";
+import { HiOutlineUsers } from "react-icons/hi2";
+
 const menuGroups = [
   {
     name: "MAIN MENU",
@@ -19,11 +21,15 @@ const menuGroups = [
         route: "/campaigns",
       },
       {
+        icon: <HiOutlineUsers size={24} />,
+        label: "Contacts",
+        route: "/contacts",
+      },
+      {
         icon: <FiUser size={24} />,
         label: "Profile",
         route: "/profile",
       },
-
       {
         icon: <RxGear size={24} />,
         label: "Settings",

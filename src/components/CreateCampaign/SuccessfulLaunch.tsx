@@ -4,7 +4,11 @@ import ButtonLink from "../Buttons/ButtonLink"; // Adjust the path as needed
 import useWindowSize from "@/hooks/useWindowSize";
 import UpFade from "../Animations/UpFade";
 
-const SuccessfulLaunch: React.FC = () => {
+interface SuccessfulLaunchProps {
+  title: string;
+  body: string;
+}
+const SuccessfulLaunch: React.FC<SuccessfulLaunchProps> = ({ title, body }) => {
   const { width, height } = useWindowSize(); // Using custom hook for window size
   const [showConfetti, setShowConfetti] = useState<boolean>(true);
 
@@ -26,14 +30,12 @@ const SuccessfulLaunch: React.FC = () => {
       <div className="mb-6 mt-18">
         <UpFade>
           <h1 className="mb-4 text-4xl font-bold text-dark dark:text-white">
-            🎉 Congratulations! 🎉
+            {title}
           </h1>
         </UpFade>
 
         <UpFade delay={0.05}>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Your campaign has been successfully launched! 🚀
-          </p>
+          <p className="text-lg text-gray-600 dark:text-gray-300">{body}</p>
         </UpFade>
       </div>
 

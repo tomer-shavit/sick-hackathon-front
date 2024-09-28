@@ -7,14 +7,17 @@ import LaunchCampaign from "./LaunchCampaign";
 import SuccessfulLaunch from "./SuccessfulLaunch";
 import SelectContacts from "./SelectContacts";
 import Pop from "../Animations/Pop";
+import PopUpCard from "../common/Cards/PopUpCard";
 
 const Stepper: React.FC = () => {
   const steps = ["Create Template", "Select Contacts", "Launch Campaign"];
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [complete, setComplete] = useState<boolean>(false);
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
+  const [isLater, setIsLater] = useState(false);
 
   useEffect(() => {
-    document?.getElementById("Header")?.scrollIntoView({ behavior: "smooth" }); // scrolls to header
+    document?.getElementById("Header")?.scrollIntoView({ behavior: "smooth" });
   }, [currentStep, complete]);
 
   const onClickNext = () => {
@@ -30,12 +33,19 @@ const Stepper: React.FC = () => {
   };
 
   const handleSendNow = () => {
-    console.log("Send Now clicked");
+    setIsPopUpVisible(true);
+  };
+
+  const handleConfirmLaunch = () => {
+    setIsLater(false);
+    console.log(isLater);
+    setIsPopUpVisible(false);
     onClickNext();
   };
 
   const handleSendLater = () => {
-    console.log("Send Later clicked");
+    setIsLater(true);
+    console.log(isLater);
     onClickNext();
   };
 
@@ -45,7 +55,6 @@ const Stepper: React.FC = () => {
         <>
           <div className="mb-4 flex justify-between">
             {steps.map((step, index) => {
-              // Only apply the Pop animation to the current step
               const isCurrentStep = currentStep - 1 === index;
               return (
                 <div key={index} className="mx-auto max-w-6xl">
@@ -81,18 +90,14 @@ const Stepper: React.FC = () => {
 
           <div className="w-full">
             {currentStep === steps.length ? (
-              <div className="flex justify-between">
+              <div className="mt-4 flex justify-evenly md:justify-end">
                 <Button
-                  label="Send Later"
+                  label="Save Campaign For Later"
                   onClick={handleSendLater}
-                  customClasses="mt-4"
+                  customClasses="mr-4"
                   variant="outlined"
                 />
-                <Button
-                  label="Send Now"
-                  onClick={handleSendNow}
-                  customClasses="mt-4"
-                />
+                <Button label="Send Now" onClick={handleSendNow} />
               </div>
             ) : (
               <div className="flex justify-end">
@@ -107,7 +112,30 @@ const Stepper: React.FC = () => {
         </>
       )}
 
-      {complete && <SuccessfulLaunch />}
+      {complete && (
+        <SuccessfulLaunch
+          title="🎉 Congratulations! 🎉"
+          body={`Your campaign has been ${isLater ? "scheduled for later 🕒" : "successfully launched! 🚀"}`}
+        />
+      )}
+
+      {isPopUpVisible && (
+        <PopUpCard onClose={() => setIsPopUpVisible(false)}>
+          <div className="flex max-w-lg flex-col text-center text-xl ">
+            <h3 className="mb-6 font-medium">
+              Are you sure you want to launch this campaign now?
+            </h3>
+            <div className="flex justify-evenly space-x-4">
+              <Button
+                label="Cancel"
+                onClick={() => setIsPopUpVisible(false)}
+                variant="outlined"
+              />
+              <Button label="Confirm" onClick={handleConfirmLaunch} />
+            </div>
+          </div>
+        </PopUpCard>
+      )}
     </div>
   );
 };

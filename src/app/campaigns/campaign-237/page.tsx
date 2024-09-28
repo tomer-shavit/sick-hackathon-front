@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Collect & manage user generated content with ease",
 };
 
-const CreateCampaign = () => {
+const Campaign237 = () => {
   return (
     <DefaultLayout>
       <CampaignDashboard></CampaignDashboard>
@@ -15,4 +15,4 @@ const CreateCampaign = () => {
   );
 };
 
-export default CreateCampaign;
+export default Campaign237;

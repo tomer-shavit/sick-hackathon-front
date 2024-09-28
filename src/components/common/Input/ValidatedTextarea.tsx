@@ -28,7 +28,7 @@ const ValidatedTextarea: React.FC<ValidatedTextareaProps> = ({
 
   return (
     <div>
-      <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+      <label className="text-md mb-3 block font-medium text-dark dark:text-white">
         {label}
       </label>
       <textarea

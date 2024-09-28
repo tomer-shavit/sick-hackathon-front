@@ -5,7 +5,7 @@ interface MainCardHeaderProps {
 const MainCardHeader: React.FC<MainCardHeaderProps> = ({ title, subTitle }) => {
   return (
     <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
-      <h3 className="text-lg font-semibold text-dark dark:text-white">
+      <h3 className="text-xl font-semibold text-dark dark:text-white">
         {title}
       </h3>
       {subTitle ? (
