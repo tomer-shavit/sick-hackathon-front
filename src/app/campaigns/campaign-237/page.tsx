@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import CampaignDashboard from "@/components/Campagins/CampaignDashboard";
+import CampaignDashboard from "@/components/Campaigns/CampaignDashboard";
 
 export const metadata: Metadata = {
   title: "Mandao | Spread The Word",
