@@ -3,7 +3,6 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import MainCard from "../common/Cards/MainCard";
 import ValidatedInput from "../common/Input/ValidatedInput";
 import ValidatedTextarea from "../common/Input/ValidatedTextarea";
-import TemplateDetails from "./TemplateDetails";
 import UpFade from "../Animations/UpFade";
 import Button from "../Buttons/Button";
 import PopUpCard from "../common/Cards/PopUpCard";
