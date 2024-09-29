@@ -37,17 +37,19 @@ const CampaignDashboard: React.FC = () => {
           </Link>
         </UpFade>
         <UpFade delay={0.1}>
-          <CampaignManagementCard
-            title="Crazy Location Compatition"
-            description="Asking for videos from the craziest places in the world with my product"
-            status="Active"
-            metrics={{
-              delivered: 12731,
-              opened: 8329,
-              clicked: 6017,
-              converted: 4872,
-            }}
-          />
+          <Link href={"/campaigns/campaign-237"}>
+            <CampaignManagementCard
+              title="Crazy Location Compatition"
+              description="Asking for videos from the craziest places in the world with my product"
+              status="Active"
+              metrics={{
+                delivered: 12731,
+                opened: 8329,
+                clicked: 6017,
+                converted: 4872,
+              }}
+            />
+          </Link>
         </UpFade>
       </div>
     </MainCard>
