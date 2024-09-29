@@ -65,10 +65,6 @@ const CreateTemplate: React.FC = () => {
           </div>
         </MainCard>
       </UpFade>
-
-      <UpFade delay={0.15}>
-        <TemplateDetails />
-      </UpFade>
     </>
   );
 };
