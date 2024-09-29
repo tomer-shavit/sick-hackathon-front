@@ -2,6 +2,7 @@ import React from "react";
 import MainCard from "../common/Cards/MainCard";
 import UpFade from "../Animations/UpFade";
 import CampaignManagementCard from "./CampaignManagementCard";
+import Link from "next/link";
 
 const CampaignDashboard: React.FC = () => {
   return (
@@ -21,17 +22,19 @@ const CampaignDashboard: React.FC = () => {
           />
         </UpFade>
         <UpFade delay={0.05}>
-          <CampaignManagementCard
-            title="Video Review Campaign"
-            description="Asking for video reviews for 30% Off next purchase"
-            status="Active"
-            metrics={{
-              delivered: 3826,
-              opened: 1843,
-              clicked: 1480,
-              converted: 1178,
-            }}
-          />
+          <Link href={"/campaigns/campaign-237"}>
+            <CampaignManagementCard
+              title="Video Review Campaign"
+              description="Asking for video reviews for 30% Off next purchase"
+              status="Active"
+              metrics={{
+                delivered: 3826,
+                opened: 1843,
+                clicked: 1480,
+                converted: 1178,
+              }}
+            />
+          </Link>
         </UpFade>
         <UpFade delay={0.1}>
           <CampaignManagementCard
