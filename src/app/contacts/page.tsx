@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 
 export const metadata: Metadata = {
-  title: "Mandao | Spread The Word",
+  title: "FelixFarm | Use Every Drop",
   description: "Collect & manage user generated content with ease",
 };
 

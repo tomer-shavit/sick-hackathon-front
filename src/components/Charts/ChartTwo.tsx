@@ -6,11 +6,11 @@ import DefaultSelectOption from "@/components/SelectOption/DefaultSelectOption";
 const ChartTwo: React.FC = () => {
   const series = [
     {
-      name: "Opened",
+      name: "Used Water",
       data: [44, 55, 41, 67, 22, 43, 65],
     },
     {
-      name: "Sent",
+      name: "Yearly Avegage",
       data: [13, 23, 20, 8, 13, 27, 15],
     },
   ];
@@ -94,11 +94,11 @@ const ChartTwo: React.FC = () => {
   };
 
   return (
-    <div className="col-span-12 rounded-[10px] bg-white px-7.5 pt-7.5 shadow-1 dark:bg-gray-dark dark:shadow-card xl:col-span-5">
+    <div className="col-span-12 h-full rounded-[10px] bg-white px-7.5 pt-7.5 shadow-md dark:bg-gray-dark dark:shadow-card xl:col-span-5">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
           <h4 className="text-body-2xlg font-bold text-dark dark:text-white">
-            Emails Opened This Week
+            Weekly Watering Plan
           </h4>
         </div>
         <div>

@@ -28,10 +28,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
           <Link href="/">
             <h1 className="text-3xl font-extrabold text-dark dark:text-white">
-              Mandao
+              FelixFarm
             </h1>
           </Link>
-
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="block lg:hidden"
