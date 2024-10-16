@@ -97,7 +97,7 @@ const ChartTwo: React.FC = () => {
     <div className="col-span-12 h-full rounded-[10px] bg-white px-7.5 pt-7.5 shadow-md dark:bg-gray-dark dark:shadow-card xl:col-span-5">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
-          <h4 className="text-body-2xlg font-bold text-dark dark:text-white">
+          <h4 className="text-3xl font-bold text-dark dark:text-white">
             Weekly Watering Plan
           </h4>
         </div>
