@@ -1,6 +1,7 @@
 import React from "react";
 import { dataStats } from "@/types/dataStats";
 import Link from "next/link";
+import { IoWater } from "react-icons/io5";
 
 const dataStatsList = [
   {
@@ -25,8 +26,8 @@ const dataStatsList = [
       </svg>
     ),
     color: "#3FD97F",
-    title: "Total Views",
-    value: "3.456K",
+    title: "Total Water Usage",
+    value: "45000L",
     growthRate: 0.43,
   },
   {
@@ -47,8 +48,8 @@ const dataStatsList = [
       </svg>
     ),
     color: "#FF9C55",
-    title: "Total Profit",
-    value: "$42.2K",
+    title: "Water Saved",
+    value: "15000L",
     growthRate: 4.35,
   },
   {
@@ -85,9 +86,9 @@ const dataStatsList = [
       </svg>
     ),
     color: "#18BFFF",
-    title: "Total Users",
-    value: "3.465",
-    growthRate: -0.95,
+    title: "Water Usage Effeciency",
+    value: "15.465",
+    growthRate: 5.95,
   },
 ];
 
@@ -154,12 +155,6 @@ const DataStatsOne: React.FC<dataStats> = () => {
             </div>
           </div>
         ))}
-        <Link
-          className={`flex cursor-pointer items-center justify-center rounded-[10px] bg-green-400 p-6 text-center text-xl font-bold text-white shadow-1 `}
-          href="/create-campaign"
-        >
-          Create New Campaign
-        </Link>
       </div>
     </>
   );
