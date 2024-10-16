@@ -17,7 +17,7 @@ const DropdownUser = () => {
           <Image
             width={112}
             height={112}
-            src="/images/user/user-03.png"
+            src="https://randomuser.me/api/portraits/men/21.jpg"
             style={{
               width: "auto",
               height: "auto",
@@ -28,7 +28,7 @@ const DropdownUser = () => {
         </span>
 
         <span className="flex items-center gap-2 font-medium text-dark dark:text-dark-6">
-          <span className="hidden lg:block">Jhon Smith</span>
+          <span className="hidden lg:block">Felix Shavit</span>
 
           <svg
             className={`fill-current duration-200 ease-in ${dropdownOpen && "rotate-180"}`}
@@ -72,7 +72,7 @@ const DropdownUser = () => {
 
             <span className="block">
               <span className="block font-medium text-dark dark:text-white">
-                Jhon Smith
+                Felix Shavit
               </span>
               <span className="block font-medium text-dark-5 dark:text-dark-6">
                 jonson@nextadmin.com

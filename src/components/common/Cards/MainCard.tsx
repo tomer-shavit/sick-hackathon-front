@@ -25,7 +25,7 @@ const MainCard: React.FC<Props> = ({
       {title ? (
         <MainCardHeader title={title} subTitle={subTitle}></MainCardHeader>
       ) : null}
-      <div className={`${innerCustomClass}`}>{children}</div>
+      <div className={`${innerCustomClass} bg-green-100`}>{children}</div>
     </div>
   );
 };
