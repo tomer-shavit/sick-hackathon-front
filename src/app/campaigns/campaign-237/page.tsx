@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import CampaignDashboard from "@/components/Campaigns/CampaignDashboard";
+import CornView from "@/components/Campaigns/CampaignDashboard";
 import ManageCampaign from "@/components/ManageCampaign/ManageCampaign";
 
 export const metadata: Metadata = {
-  title: "Mandao | Spread The Word",
+  title: "FelixFarm | Use Every Drop",
   description: "Collect & manage user generated content with ease",
 };
 

@@ -1,59 +1,38 @@
+"use client";
 import React from "react";
 import MainCard from "../common/Cards/MainCard";
-import UpFade from "../Animations/UpFade";
-import CampaignManagementCard from "./CampaignManagementCard";
-import Link from "next/link";
+import ChartTwo from "../Charts/ChartTwo";
+import CropData from "../CropInfo/CropData";
+import SensorsTable from "../CropInfo/SensorTable";
 
-const CampaignDashboard: React.FC = () => {
+const CornView: React.FC = () => {
   return (
-    <MainCard title="Campaigns" innerCustomClass="bg-gray-1 dark:bg-gray-dark">
-      <div className="p-4 ">
-        <UpFade>
-          <CampaignManagementCard
-            title="Before & After Campaign"
-            description="This campaign asking for images before they used my product and after."
-            status="Pending"
-            metrics={{
-              delivered: 0,
-              opened: 0,
-              clicked: 0,
-              converted: 0,
-            }}
-          />
-        </UpFade>
-        <UpFade delay={0.05}>
-          <Link href={"/campaigns/campaign-237"}>
-            <CampaignManagementCard
-              title="Video Review Campaign"
-              description="Asking for video reviews for 30% Off next purchase"
-              status="Active"
-              metrics={{
-                delivered: 3826,
-                opened: 1843,
-                clicked: 1480,
-                converted: 1178,
-              }}
+    <MainCard
+      title="Corn Field Stats"
+      innerCustomClass="bg-gray-1 grid dark:bg-gray-dark"
+    >
+      <div className="p-4">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="col-span-1 h-full">
+            <CropData
+              fieldSize="25 square kilometers"
+              cropType="Corn"
+              fieldLocation="Farm #7, North Valley"
+              plantingDate="April 15, 2024"
+              soilPH="6.5"
+              rainfall="30 mm"
             />
-          </Link>
-        </UpFade>
-        <UpFade delay={0.1}>
-          <Link href={"/campaigns/campaign-237"}>
-            <CampaignManagementCard
-              title="Crazy Location Compatition"
-              description="Asking for videos from the craziest places in the world with my product"
-              status="Active"
-              metrics={{
-                delivered: 12731,
-                opened: 8329,
-                clicked: 6017,
-                converted: 4872,
-              }}
-            />
-          </Link>
-        </UpFade>
+          </div>
+          <div className="col-span-2">
+            <ChartTwo />
+          </div>
+        </div>
+        <div>
+          <SensorsTable></SensorsTable>
+        </div>
       </div>
     </MainCard>
   );
 };
 
-export default CampaignDashboard;
+export default CornView;
